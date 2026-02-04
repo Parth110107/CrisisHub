@@ -1,45 +1,44 @@
 body {
-  background-color: #f8f9fa;
+  background: linear-gradient(135deg, #141e30, #243b55);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h1, h2 {
-  color: #2c3e50;
-  font-weight: 600;
+  color: #ffffff;
   text-align: center;
 }
 
-form {
-  max-width: 600px;
-  margin: 20px auto;
-  background: #fff;
+form, .table, .card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
   padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 .btn {
-  border-radius: 8px;
+  border-radius: 10px;
+  transition: 0.3s ease;
 }
 
-.table {
-  background-color: white;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.table th {
-  background-color: #198754;
-  color: white;
-}
-
-a.btn {
-  margin: 5px;
+.btn:hover {
+  transform: scale(1.05);
 }
 
 footer {
   text-align: center;
-  margin-top: 30px;
-  color: #6c757d;
-  font-size: 14px;
+  margin-top: 40px;
+  color: #ddd;
+}
+.card h1 {
+  color: #2c3e50;   /* dark blue */
+  font-weight: 700;
+}
+
+.card h4 {
+  color: #555;
+}
+.hero-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
 }

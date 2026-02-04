@@ -6,15 +6,44 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body class="p-4">
-
-  <h1 class="mb-4">Local Crisis Resource Coordination System</h1>
-
-  <div class="text-center">
-    <a href="/add_volunteer" class="btn btn-success m-2">Register as Volunteer</a>
-    <a href="/add_request" class="btn btn-primary m-2">Submit a Help Request</a>
-    <a href="/view" class="btn btn-info m-2">View All Data</a>
-    <a href="/search" class="btn btn-warning m-2">Search Volunteers</a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="/">🚨 CrisisHub</a>
+    <div class="navbar-nav">
+      <a class="nav-link" href="/add_volunteer">Volunteer</a>
+      <a class="nav-link" href="/add_request">Request Help</a>
+      <a class="nav-link" href="/dashboard">Dashboard</a>
+      <a class="nav-link" href="/search">Search</a>
+    </div>
   </div>
+</nav>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% for category, message in messages %}
+<div class="alert alert-{{ category }}">{{ message }}</div>
+{% endfor %}
+{% endwith %}
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="text-center p-5 rounded-4 hero-box">
+
+    <h1 class="display-4 fw-bold text-white">CrisisHub</h1>
+
+    <p class="lead text-light opacity-75">
+      Connecting volunteers with people in need during emergencies
+    </p>
+
+    <div class="mt-4">
+      <a href="/add_volunteer" class="btn btn-success btn-lg m-2">Become a Volunteer</a>
+      <a href="/add_request" class="btn btn-danger btn-lg m-2">Request Help</a>
+    </div>
+
+  </div>
+</div>
+
+
+ 
+
+
 
   <footer>
     © 2025 Local Crisis Resource Coordination System | Built with ❤️ using Flask & SQLite
