@@ -1,7 +1,11 @@
 from flask import Flask, render_template, request, redirect
 import sqlite3
+from flask import flash
+
 
 app = Flask(__name__)
+app.secret_key = 'crisishub_secret'
+
 
 # ---------- DATABASE INITIALIZATION ----------
 def init_db():
@@ -42,6 +46,8 @@ def index():
 @app.route('/add_volunteer', methods=['GET', 'POST'])
 def add_volunteer():
     if request.method == 'POST':
+        flash("Volunteer registered successfully!", "success")
+
         name = request.form['name']
         contact = request.form['contact']
         skills = request.form['skills']
@@ -108,9 +114,29 @@ def search():
         conn.close()
     return render_template('search.html', results=results)
 
+@app.route('/dashboard')
+def dashboard():
+    conn = sqlite3.connect('database.db')
+    c = conn.cursor()
+
+    c.execute("SELECT COUNT(*) FROM Volunteers")
+    volunteers = c.fetchone()[0]
+
+    c.execute("SELECT COUNT(*) FROM Requests")
+    requests = c.fetchone()[0]
+
+    conn.close()
+    return render_template(
+        'dashboard.html',
+        volunteers=volunteers,
+        requests=requests
+    )
+
+
 
 # ---------- MAIN ----------
 if __name__ == '__main__':
     init_db()
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)
+
 
