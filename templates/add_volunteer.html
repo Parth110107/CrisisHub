@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Volunteer</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="p-4">
+
+  <h2>Register Volunteer</h2>
+  <form method="POST">
+    <input class="form-control mb-2" type="text" name="name" placeholder="Full Name" required>
+    <input class="form-control mb-2" type="text" name="contact" placeholder="Contact Info" required>
+    <input class="form-control mb-2" type="text" name="skills" placeholder="Skills (e.g., First Aid, Driving)">
+    <input class="form-control mb-2" type="text" name="availability" placeholder="Availability (e.g., Weekends)">
+    <button class="btn btn-success">Submit</button>
+  </form>
+
+  <div class="text-center">
+    <a href="/" class="btn btn-secondary mt-3">Back</a>
+  </div>
+
+</body>
+</html>
+
